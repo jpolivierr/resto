@@ -1,0 +1,43 @@
+.theMap{
+    z-index: 1!important;
+}
+
+.marker{
+    width: 20px;
+    height: 30px;
+    background: url('../../img/marker.png') no-repeat center center/contain;
+    cursor: pointer;
+    transition: all .2s ease;
+    position: relative;
+    font-size: .3rem !important;
+    z-index: 0;
+}
+
+.marker:hover{
+    transform: scaleY(1.3);
+}
+
+.marker:hover .markerInfo{
+    width: 800%;
+   padding: 50% 80%;
+   border: 1px solid silver;
+   z-index: 2;
+}
+
+.markerInfo{
+   position: absolute;
+   background: white;
+   width: 0%;
+   border-radius: 5px;
+   bottom: 110%;
+   overflow: hidden !important;
+   transition: all .2s ease;
+   z-index: 2;
+}
+
+.markerInfo h3{
+    font-size: .8rem !important;
+}
+.markerInfo p{
+    font-size: .6rem !important;
+}

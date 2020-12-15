@@ -1,0 +1,23 @@
+.resultLayout{
+    width: var(--container-size);
+    height: min-content !important;
+    margin: auto 0rem;
+    position: relative;
+    top: 4%;
+    z-index: 0;
+}
+
+.resultanimation{
+    animation: rmove 1s ease;
+    height: min-content !important;
+  }
+  @keyframes rmove{
+    from{
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }

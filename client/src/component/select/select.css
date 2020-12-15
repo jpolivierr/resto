@@ -1,0 +1,102 @@
+.select {
+  position: relative;
+  border: none;
+  padding: .7rem 1rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border: 1px solid rgba(192, 192, 192, 0.308) !important;
+  border-radius: var(--radius);
+}
+
+.select input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: var(--light-text-color);
+  outline: none;
+  padding: 0px 2%;
+}
+.select input::placeholder {
+  color: var(--light-text-color);
+  opacity: 1;
+}
+.select i {
+  color: var(--main-color);
+  font-size: 1.5rem;
+}
+.select:hover .select-box {
+  opacity: 1;
+  max-height: 200px;
+  padding: 10px 0px 0px 0px;
+}
+.select-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0px 120px;
+  /* background-color: transparent; */
+  width: 100%;
+  min-width: 150px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-height: 0px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color) transparent;
+  scroll-padding-block-start: 20px;
+  z-index: 3;
+}
+.select-box::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+.select-box::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+.option {
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(192, 192, 192, 0.363);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: black !important;
+}
+.option:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.select-from-advance {
+  color: white;
+  border-bottom: 1px solid white;
+  padding-left: 0;
+  background-color: white !important;
+  color: var(--light-text-color);
+  /* border-radius: var(--radius); */
+  border-bottom: 1px solid silver;
+  padding-left: 10px;
+  color: var(--light-text-color) !important;
+}
+
+.select-from-advance input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+.select-from-advance input::placeholder {
+  color: var(--light-text-color) !important;
+  opacity: 1;
+  font-weight: lighter !important;
+}

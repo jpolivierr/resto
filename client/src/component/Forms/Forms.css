@@ -1,0 +1,124 @@
+.Forms {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 600px;
+  height: 700px;
+  background-color: white;
+  margin: auto;
+  padding: 3rem 0rem !important;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  animation: move .5s ease-in-out forwards;
+  z-index: 100 !important;
+}
+@keyframes move{
+  from{
+     top: -1000px;
+     opacity: 0;
+  }
+  to{
+    top: 0px;
+    opacity: 1;
+  }
+}
+.Formout{
+  animation: moveout .5s ease-in-out forwards;
+}
+@keyframes moveout{
+  from{
+     top: 0px;
+     opacity: 1;
+  }
+  to{
+    top: -1000px;
+    opacity: 0;
+  }
+}
+
+.Forms .form-input{
+  width: 80%;
+  padding: 20px 20px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: rgba(235, 233, 233, 0.432);
+  border-radius: var(--radius);
+  outline: none;
+}
+
+.login-form{
+  height: 500px;
+  display: flex !important;
+}
+
+.form-title-section {
+  position: relative;
+  width: 80%;
+  text-align: left;
+  margin-bottom: 40px ;
+}
+
+.form-title-section h2 {
+  color: var(--main-color);
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.Forms .button-container {
+  position: relative;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.Forms .button-container p {
+  padding-bottom: 30px;
+}
+.Forms button {
+  align-self: flex-start;
+  background-color: var(--main-color);
+  border: none;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 1rem 0rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.error{
+  position: absolute;
+  color: red;
+  top: -25px;
+}
+
+.Forms .errorStyle{
+  border: 1px solid red;
+}
+.Forms .errorStyle::placeholder{
+  color: red;
+}
+.Forms  h3{
+  display: block;
+  padding-bottom: 20px !important;
+  place-items: flex-start;
+  width: 80%;
+  color: var(--light-text-color) ;
+}
+
+.orloggin{
+  padding-left: 5%;
+}
+.orloggin span{
+  display: inline;
+  color: blue;
+  font-size: inherit !important;
+  font-weight: bold;
+}
+
+.Forms p{
+  color: var(rgb(70, 70, 70)) !important;
+}

@@ -1,0 +1,43 @@
+{
+  "name": "resto",
+  "version": "1.0.0",
+  "description": "App that allows you to search for restaurants in a city.",
+  "main": "server.js",
+  "scripts": {
+    "heroku-postbuild": "cd client && npm install --only=dev --no-shrinkwrap && npm run build",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "(cd client && npm run start)",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpolivierr/foodapp.git"
+  },
+  "author": "Frederic Olivier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpolivierr/foodapp/issues"
+  },
+  "homepage": "https://github.com/jpolivierr/foodapp#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "google-map-react": "^2.1.9",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.13",
+    "node-html-parser": "^2.0.0",
+    "request": "^2.88.2",
+    "swr": "^0.3.9"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}

@@ -1,0 +1,29 @@
+.Backmodal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+    animation: modalmove .2s ease-in-out;
+}
+
+@keyframes modalmove{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.Backmodalout{
+    animation: backmodalout .2s ease-in-out forwards;
+}
+
+@keyframes backmodalout{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

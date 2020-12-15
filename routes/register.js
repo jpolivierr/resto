@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator")
 const bcrypt = require("bcryptjs")
 const saltRounds = 10
 const UserModel = require("../Database/models/userModel")
+const tokenSecret = 'f9c4c877a8e227f8db1d0990d68a68d60244a660ee42c9c69e34badaf7f93181d49b680bfbc85b625ee095e2ef3609502847a23668a83a805d09131737305139'
 
 router.post(
   "/",
@@ -48,7 +49,7 @@ router.post(
         await newuser.save()
         // Return jsonwebtoken
         const userid = { id: newuser.id }
-        const token = jwt.sign(userid, process.env.TOKEN_SECRET)
+        const token = jwt.sign(userid, tokenSecret)
         const asset = newuser.favorite_restaurant
         res.status(200).json({ token, msg: "Registered successfuly",name: newuser.name, email: newuser.email, asset })
       })

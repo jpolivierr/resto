@@ -5,6 +5,8 @@ const tokenAuth = require("../middleware/tokenAuth")
 const { check, validationResult } = require("express-validator")
 const UserModel = require("../Database/models/userModel")
 const bcrypt = require("bcryptjs")
+const tokenSecret = 'f9c4c877a8e227f8db1d0990d68a68d60244a660ee42c9c69e34badaf7f93181d49b680bfbc85b625ee095e2ef3609502847a23668a83a805d09131737305139'
+
 
 // user login
 router.post(
@@ -34,7 +36,7 @@ router.post(
       // Return jsonwebtoken
       const asset = user.favorite_restaurant
     //   console.log(JSON.parse(asset))
-      const token = jwt.sign(user.id, process.env.TOKEN_SECRET)
+      const token = jwt.sign(user.id, tokenSecret)
   
       res.status(200).json({ token, msg: "Registered successfuly", asset, name: user.name, email: user.email  })
     } catch (error) {

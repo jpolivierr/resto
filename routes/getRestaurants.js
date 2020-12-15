@@ -3,13 +3,14 @@ const axios = require("axios")
 const {parse} = require('node-html-parser')
 const router = express.Router()
 const restoData = require('./restoData.json')
+const zomatoKey = require("config").get('zomatoKey')
 
 // get Data on load
 router.get("/", async (req, res) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
-      "user-key": process.env.ZOMATO_KEY,
+      "user-key": zomatoKey,
     },
   }
   try {
@@ -44,7 +45,7 @@ router.post("/", async (req, res) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
-      "user-key": process.env.ZOMATO_KEY,
+      "user-key": zomatoKey,
     },
   }
   try {

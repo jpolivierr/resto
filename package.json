@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "App that allows you to search for restaurants in a city.",
   "main": "server.js",
+  "engines": {
+    "node":"12.x"
+ },
   "scripts": {
     "heroku-postbuild": "cd client && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "node server.js",

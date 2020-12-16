@@ -75,8 +75,22 @@ function Result() {
     }
   }, [reduxResult.length, dispatch, selected])
 
+  const [resultModal, setResultModal] = useState({
+    modal:'',
+    result_mobile: ''
+  })
+
+  const closeResultModal = () => {
+    setResultModal( {...resultModal, modal: '', result_mobile: ''})
+  }
+  
+  console.log(window.innerWidth)
+
   const selectedRes = (e) => {
-    //--------------------------------------------------------------------- show full result on click
+    // display full result mobile version
+    if(window.innerWidth < 1037)
+    setResultModal( {...resultModal, modal: 'result-modal', result_mobile: 'full-result-mobile'})
+    //show full result on click
     if (e.target.id !== "like" && e.target.className !== "like") {
       const singleRestaurant = reduxResult.find((res) => {
         return res.id === e.target.id
@@ -84,7 +98,7 @@ function Result() {
       setSelected({ ...setSelected, newresult: singleRestaurant })
     }
     if (e.target.id === "like" && log) {
-      // -------------------------------------------------remove favorite restaurant to favRes array
+      //remove favorite restaurant to favRes array
       if (e.target.className.includes("clicked") && e.target.id === "like") {
         dispatch({
           type: actions.REMOVE_FAV_RES,
@@ -127,18 +141,24 @@ function Result() {
 
   // generate random number
   const random = (thumb) => {
-
-    if (loading.loading === false) { 
       if (thumb === "" || thumb === undefined) {
-        return imgArray[Math.floor(Math.random() * imgArray.length)]
+        const output = imgArray[Math.floor(Math.random() * imgArray.length)]
+        return output
       } else {
         return thumb
       }
-  
-    }else{
-      return null
-    }
   }
+  const fixed = (thumb, index) => {
+      if (thumb === "" || thumb === undefined) {
+        const output = imgArray[index]
+        return output
+      } else {
+        return thumb
+      }
+  }
+  
+  
+
   // --------------------------------------------------displayes all the info for the selected restaurant
   const resultToDisplay = selected.newresult
   switch (restaurants) {
@@ -151,6 +171,8 @@ function Result() {
             loading.loading === true ? "result-is-loading" : ""
           } `}
         >
+          <div className = {resultModal.modal} style={{position: 'fixed'}}></div>
+
           {loading.loading === true ? (
             <div className="lds-ripple">
               <div></div>
@@ -192,8 +214,8 @@ function Result() {
                   <div
                     id={resId}
                     style={{
-                      background: `url(${random(
-                        res.thumb
+                      background: `url(${fixed(
+                        res.thumb, index
                       )}) no-repeat center center/cover`,
                     }}
                     className="img"
@@ -217,7 +239,10 @@ function Result() {
             })}
           </div>
 
-          <div className="full-result">
+          <div className= {`full-result ${resultModal.result_mobile}`}>
+            <div className="full-result-mobile-close" onClick={()=> closeResultModal()}>
+              +
+            </div>
             <div className="main-img">
               <div className="main-img-box">
                 <h2>{resultToDisplay.name}</h2>

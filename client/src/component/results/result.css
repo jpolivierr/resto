@@ -1,16 +1,16 @@
 .result {
   width: 100%;
-  height: 70vh;
-  max-height: 600px;
+  height: 100%;
+  max-height: 550px;
   display: grid;
-  grid-template-columns: 1.5fr 1.3fr .8fr;
+  grid-template-columns: 1.5fr 1.3fr 0.8fr;
   --spacing: 30px;
   column-gap: 1%;
   z-index: 0;
+  /* border: 2px solid blue; */
 }
 
 .snip-result {
-  background: transparent;
   overflow: hidden;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -18,6 +18,7 @@
   height: 100%;
   width: 100%;
   z-index: 0;
+  /* border: 2px solid yellow; */
 }
 .snip-result::-webkit-scrollbar {
   width: 5px;
@@ -51,7 +52,7 @@
 }
 
 .snip-result .box h2 {
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .snip-result .box .img {
@@ -64,14 +65,13 @@
 .snip-result .info {
   color: var(--light-text-color);
   height: min-content;
-  
 }
 
 .basic-info {
   padding-bottom: 1%;
   color: var(--light-text-color);
   height: min-content;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   /* padding-left: 1rem; */
 }
 
@@ -89,6 +89,7 @@
 }
 
 .full-result {
+  position: relative;
   background: white;
   display: flex;
   flex-flow: column;
@@ -99,6 +100,47 @@
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: transparent;
+  z-index: 0;
+}
+
+.full-result-mobile {
+  position: fixed;
+  z-index: 3;
+  width: 350px;
+  height: min-content;
+  height: 600px !important;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+
+.full-result-mobile-close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: white;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  width: 30px;
+  height: 30px;
+  right: 5px;
+  top: 10px;
+  z-index: 10 !important;
+  cursor: pointer;
+}
+
+.result-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.664);
+  z-index: 2;
 }
 
 .main-img {
@@ -142,14 +184,14 @@
   font-weight: bold;
   font-size: 0.8rem;
   border: 1px solid rgba(192, 192, 192, 0.301);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .link-bar .r-btn:hover {
   color: white;
   background-color: var(--main-color);
 }
-.link-bar .r-btn:hover i{
+.link-bar .r-btn:hover i {
   color: white;
 }
 .link-bar .r-btn i {
@@ -160,7 +202,7 @@
   font-size: 1rem;
   color: var(--main-color);
   padding-bottom: 15%;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .link-info {
@@ -192,8 +234,8 @@
   color: var(--text-color);
 }
 
-.r-info span i{
-  font-size: .8rem;
+.r-info span i {
+  font-size: 0.8rem;
 }
 
 .restaurant-photos {
@@ -310,7 +352,7 @@
   font-size: 1.3rem;
   overflow: hidden;
   border-radius: 50%;
-  padding: .1rem;
+  padding: 0.1rem;
 }
 .clicked {
   background-color: yellow;
@@ -330,12 +372,12 @@
   font-size: 0.8rem;
 }
 
-.open-hours{
-  font-size: .9rem;
+.open-hours {
+  font-size: 0.9rem;
   padding-top: 2%;
 }
 
-.searching{
+.searching {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.959);
@@ -345,7 +387,7 @@
   font-weight: bold;
 }
 
-.main-img-box h2{
+.main-img-box h2 {
   font-size: 2rem;
   line-height: 100%;
 }

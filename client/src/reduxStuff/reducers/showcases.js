@@ -1,7 +1,7 @@
 import * as actions from '../actions/actionType'
 
 const initialState = {
-    showcase: 1,
+    showcase: 2,
     animation: false
 }
 
@@ -13,5 +13,4 @@ const initialState = {
             return state
     }
 }
-
 export default Showcase

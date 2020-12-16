@@ -53,7 +53,7 @@ function Navigation() {
             }}
           >
             {" "}
-            <span>Food</span>App
+            <span className ='resto-span'>ez</span>SEARCH
           </div>
           <div className="registration">
             <div
@@ -144,7 +144,7 @@ function Navigation() {
             }}
           >
             {" "}
-            <span>Food</span>App
+            <span>RES</span>TO
           </div>
           <div className="registration">
             <div

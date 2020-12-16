@@ -1,10 +1,13 @@
 .resultLayout{
     width: var(--container-size);
-    height: min-content !important;
+    /* height: 70vh; */
+    display: flex;
+    flex-flow: column;
     margin: auto 0rem;
     position: relative;
     top: 4%;
     z-index: 0;
+    /* border: 2px solid red; */
 }
 
 .resultanimation{

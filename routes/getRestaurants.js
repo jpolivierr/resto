@@ -19,10 +19,6 @@ router.get("/", async (req, res) => {
         config
       )
     const cityId = await response.data.location_suggestions[0].entity_id
-    const restaurantResult = await axios.get(
-      `https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&cuisines=1`,
-      config
-    )
     // fs.writeFile(path.join(__dirname, 'restoData.json'), JSON.stringify(restaurantResult.data), err =>{
     //   if(err) throw err
     //   console.log('File created......')

@@ -1,12 +1,13 @@
 const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 5000
+const {parse} = require('node-html-parser')
 const cors = require('cors')
 const Database = require("./Database/database")
 const path = require('path')
 
 // ** MIDDLEWARE ** //
-const whitelist = ['http://localhost:5000', 'https://murmuring-mesa-28934.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'http://localhost:5000', 'https://https://murmuring-mesa-28934.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)
@@ -20,18 +21,18 @@ const corsOptions = {
   }
 }
 app.use(cors(corsOptions))
-
+app.use(cors())
 
 Database()
-app.use(cors())
+
 //Init Middleware
 app.use(express.json({extended: false}))
 
-// app.get('/a',(req, res)=>{res.json({msg: 'hello there'})})
 app.use('/register', require('./routes/register'))
 app.use('/login', require('./routes//login'))
 app.use('/profile', require('./routes/profile'))
 app.use('/getRestaurant', require('./routes/getRestaurants'))
+
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

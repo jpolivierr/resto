@@ -10,16 +10,16 @@
   font-weight: bold;
 }
 
-.Navigation .logo,
-span {
-  font-size: 25px;
-  cursor: pointer;
+.Navigation .logo{
+  font-size: 30px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .Navigation .logo span {
+  font-size: 40px;
   color: var(--main-color);
-  font-weight: bold;
+  font-weight: bolder;
 
 }
 .registration {
@@ -29,11 +29,11 @@ span {
 .user {
   border: 1px solid var(--main-color);
   background: transparent;
-  padding: 7px 20px;
+  padding: .5rem 1rem;
   display: flex;
   align-items: center;
   height: 50%;
-  margin-left: 20px;
+  margin-left: 1rem;
   border-radius: var(--radius);
   cursor: pointer;
 }

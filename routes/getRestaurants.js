@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
     },
   }
   try {
-    console.log(req.body)
     const response = await axios.get(
         `https://developers.zomato.com/api/v2.1/locations?query=miami`,
         config
@@ -24,8 +23,6 @@ router.get("/", async (req, res) => {
       `https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&cuisines=1`,
       config
     )
-
-    console.log(restaurantResult.data)
     // fs.writeFile(path.join(__dirname, 'restoData.json'), JSON.stringify(restaurantResult.data), err =>{
     //   if(err) throw err
     //   console.log('File created......')

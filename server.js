@@ -6,7 +6,7 @@ const Database = require("./Database/database")
 const path = require('path')
 
 // ** MIDDLEWARE ** //
-const whitelist = ['http://localhost:5000', 'https://https://murmuring-mesa-28934.herokuapp.com']
+const whitelist = ['http://localhost:5000', 'https://murmuring-mesa-28934.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)

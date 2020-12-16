@@ -7,7 +7,7 @@ body {
   --container-size: 70%;
   --radius: 5px;
   --light-text-color: rgba(80, 80, 80, 0.774);
-  --text-color: rgb(46, 46, 46);
+  --text-color: rgb(109, 109, 109);
 }
 
 * {
@@ -32,10 +32,7 @@ li {
   padding-bottom: 1%;
   font-size: 0.9rem;
 }
-code {
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace; */
-}
+
 
 a {
   text-decoration: none;
@@ -43,7 +40,7 @@ a {
 
 @media (min-width: 1591px) {
   body {
-    --container-size: 1109px !important ;
+    --container-size: 1209px !important ;
   }
   .snip-result .box .img {
     width: 120px !important;
@@ -80,7 +77,7 @@ a {
 @media (max-width: 1089px) {
 }
 
-@media (max-width: 917px) {
+@media (max-width: 1037px) {
   body {
     --container-size: 80% !important ;
   }
@@ -154,9 +151,6 @@ a {
     padding: 1.5rem 1rem !important;
     grid-template-columns: 1fr 1fr !important ;
     row-gap: 1rem;
-  }
-  .resultLayout{
-    padding-top: 5rem;
   }
 }
 

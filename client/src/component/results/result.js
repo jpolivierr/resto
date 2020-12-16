@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import * as actions from "../../reduxStuff/actions/actionType"
-// import Map from "../../component/map/map"
+import Map from "../../component/map/map"
 import axios from "axios"
 import "./result.css"
-
+import imgArray from "./images"
 function Result() {
   //------------------------------------------------------------assign dispatch
   const dispatch = useDispatch()
@@ -18,10 +18,10 @@ function Result() {
   // console.log(reduxResult)
   //--------------------------------------------------------------State variables
   // const storage = JSON.parse(localStorage.getItem("restaurant"))
-  const [Results, setResults] = useState(
-    reduxResult.length === 0 ? [] : reduxResult
-  )
-  console.log(Results)
+  // const [Results, setResults] = useState(
+  //   reduxResult.length === 0 ? [] : reduxResult
+  // )
+  // console.log(Results)
   const restaurants = !showFavorites ? reduxResult : fav_Res
   const [selected, setSelected] = useState({
     newresult: reduxResult.length === 0 ? [] : reduxResult[0],
@@ -55,7 +55,7 @@ function Result() {
             res.address = res.location.address
           })
           localStorage.setItem("restaurant", JSON.stringify(globalResults))
-          setResults(globalResults.restaurants)
+          // setResults(globalResults.restaurants)
           dispatch({
             type: actions.PUSH_RESULT,
             payload: globalResults.restaurants,
@@ -124,6 +124,21 @@ function Result() {
       }, 2000)
     }
   }
+
+  // generate random number
+  const random = (thumb) => {
+
+    if (loading.loading === false) { 
+      if (thumb === "" || thumb === undefined) {
+        return imgArray[Math.floor(Math.random() * imgArray.length)]
+      } else {
+        return thumb
+      }
+  
+    }else{
+      return null
+    }
+  }
   // --------------------------------------------------displayes all the info for the selected restaurant
   const resultToDisplay = selected.newresult
   switch (restaurants) {
@@ -145,7 +160,7 @@ function Result() {
             ""
           )}
           <div className="snip-result">
-            {restaurants.map((res) => {
+            {restaurants.map((res, index) => {
               if (res === undefined || !res) {
                 return null
               }
@@ -173,7 +188,16 @@ function Result() {
                       className={`far fa-heart ${res.liked}`}
                     ></i>
                   </div>
-                  <div id={resId} className="img"></div>
+                  {/* images */}
+                  <div
+                    id={resId}
+                    style={{
+                      background: `url(${random(
+                        res.thumb
+                      )}) no-repeat center center/cover`,
+                    }}
+                    className="img"
+                  ></div>
                   <h2 className="pad" id={resId}>
                     {res.name}
                   </h2>
@@ -219,33 +243,57 @@ function Result() {
             </div>
 
             <div className="link-info">
-              <h2>Info:</h2>
+              <h2>Restaurant Detail:</h2>
               <div className="address r-info">
-                <span></span> {resultToDisplay.address}
+                <span><i className="fas fa-map-marker-alt"></i></span> {resultToDisplay.address}
               </div>
               <div className="Phone r-info">
-                <span></span> {resultToDisplay.phone_numbers}
+                <span><i className="fas fa-phone"></i></span> {resultToDisplay.phone_numbers}
               </div>
               <div className="open-hours r-info">
-                <span></span> {resultToDisplay.timings}
+                <span><i className="fas fa-clock"></i></span> {resultToDisplay.timings}
               </div>
             </div>
-            <h2>Photos</h2>
+            <h2>View Photos</h2>
             <div className="restaurant-photos">
-              <div className="small-img small-img-1"></div>
-              <div className="small-img small-img-2"></div>
-              <div className="small-img small-img-3"></div>
-              <div className="small-img small-img-4"></div>
-              <div className="small-img small-img-5"></div>
-              <div className="small-img small-img-6"></div>
+              <div className="small-img small-img-1" style={{
+                      background: `url(${random(
+                        ''
+                      )}) no-repeat center center/cover`,
+                    }}></div>
+              <div className="small-img small-img-2" style={{
+                      background: `url(${random(
+                        ''
+                      )}) no-repeat center center/cover`,
+                    }}></div>
+              <div className="small-img small-img-3" style={{
+                      background: `url(${random(
+                        ''
+                      )}) no-repeat center center/cover`,
+                    }}></div>
+              <div className="small-img small-img-4" style={{
+                      background: `url(${random(
+                        ''
+                      )}) no-repeat center center/cover`,
+                    }}></div>
+              <div className="small-img small-img-5" style={{
+                      background: `url(${random(
+                        ''
+                      )}) no-repeat center center/cover`,
+                    }}></div>
+              <div className="small-img small-img-6" style={{
+                      background: `url(${random(
+                        ''
+                      )}) no-repeat center center/cover`,
+                    }}></div>
             </div>
           </div>
-          {/* 
+          
           {loading.loading ? (
             <div className="searching">Searching...</div>
           ) : (
             <Map addressResult={reduxResult} />
-          )} */}
+          )}
         </div>
       )
   }

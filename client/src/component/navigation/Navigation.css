@@ -51,10 +51,15 @@ span {
 
 }
 
-.Navigation .sign-up:hover, .logedIn:hover{
+.Navigation .log-in{
+  transition: all .3s ease-in-out;
+}
+
+.Navigation .sign-up:hover, .Navigation .log-in:hover{
   background-color: var(--main-color);
   color: white;
 }
+
 
 .logedIn i {
   border: 3px solid var(--main-color);

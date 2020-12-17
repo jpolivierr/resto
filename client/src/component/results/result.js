@@ -39,7 +39,7 @@ function Result() {
         payload: true,
       })
       const globalResults = {}
-      console.log("fetching from server......")
+      // console.log("fetching from server......")
       const config = {
         headers: { "Content-Type": "application/json" },
       }
@@ -84,7 +84,6 @@ function Result() {
     setResultModal( {...resultModal, modal: '', result_mobile: ''})
   }
   
-  console.log(window.innerWidth)
 
   const selectedRes = (e) => {
     // display full result mobile version
@@ -117,7 +116,7 @@ function Result() {
         e.target.id === "like"
       ) {
         e.target.className += " clicked"
-        console.log(reduxResult)
+        // console.log(reduxResult)
         const savedRes = reduxResult.find((res) => {
           return res.id === e.target.dataset.resid
         })

@@ -21,10 +21,10 @@ const corsOptions = {
   }
 }
 app.use(cors(corsOptions))
-app.use(cors())
+
 
 Database()
-
+app.use(cors())
 //Init Middleware
 app.use(express.json({extended: false}))
 
@@ -34,6 +34,7 @@ app.use('/profile', require('./routes/profile'))
 app.use('/getRestaurant', require('./routes/getRestaurants'))
 
 
+console.log(process.env.NODE_ENV = 'production')
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));

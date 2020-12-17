@@ -1,7 +1,7 @@
 import * as actions from '../actions/actionType'
 
 const initialState = {
-    showcase: 2,
+    showcase: 1,
     animation: false
 }
 

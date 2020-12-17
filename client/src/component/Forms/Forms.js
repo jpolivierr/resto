@@ -129,7 +129,7 @@ function Forms(props) {
     const body = JSON.stringify(update)
     try {
       const res = await axios.post("/profile/update/", body, config)
-      console.log(res)
+      // console.log(res)
       closeForm()
     } catch (error) {
       console.log(error.response.data)
@@ -146,7 +146,7 @@ function Forms(props) {
     const childnode = event.target.childNodes
     if (msgErrors) {
       childnode.forEach((child) => {
-        console.log(child.id)
+        // console.log(child.id)
         msgErrors.forEach((err) => {
           console.log(childnode.type)
           if (err.param === child.id) {

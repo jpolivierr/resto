@@ -94,7 +94,7 @@ function Navigation() {
             }}
           >
             {" "}
-            <span>Food</span>App
+            <span>EZ</span>SEARCH
           </div>
           <div className="registration">
             <div className="sign-up user logedIn" onClick={() => {}}>

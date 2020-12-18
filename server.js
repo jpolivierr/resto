@@ -7,30 +7,31 @@ const Database = require("./Database/database")
 const path = require("path")
 
 // ** MIDDLEWARE ** //
-const whitelist = [
-  "http://localhost:5000",
-  "https://https://murmuring-mesa-28934.herokuapp.com",
-]
-const corsOptions = {
-  origin: function (origin, callback) {
-    // console.log(origin)
-    console.log("** Origin of request " + origin)
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log("Origin acceptable")
-      callback(null, true)
-    } else {
-      console.log("Origin rejected")
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-}
+// const whitelist = [
+//   "http://localhost:5000",
+//   "https://https://murmuring-mesa-28934.herokuapp.com",
+// ]
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     // console.log(origin)
+//     console.log("** Origin of request " + origin)
+//     if (whitelist.indexOf(origin) !== -1 || !origin) {
+//       console.log("Origin acceptable")
+//       callback(null, true)
+//     } else {
+//       console.log("Origin rejected")
+//       callback(new Error("Not allowed by CORS"))
+//     }
+//   },
+// }
 
+app.use(cors())
 
 Database()
 // app.use(cors())
 //Init Middleware
 app.use(express.json({ extended: false }))
-app.use(cors(corsOptions))
+
 
 app.use("/register", require("./routes/register"))
 app.use("/login", require("./routes//login"))

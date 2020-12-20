@@ -9,7 +9,7 @@ function AdvanceSearch(props) {
   // --------------------------------------------------sTATES
   const [filter, setFilter] = useState({
     city: "",
-    cuisine: { name: "CUISINE: select a cuisine for better result", id: null },
+    cuisine: { name: "Cuisine", id: null },
     rating: "Rating",
     sort: "Sort-by",
   })

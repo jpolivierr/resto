@@ -1,6 +1,14 @@
 
     const cuisines = [
       {
+        
+          "cuisine":{
+            "cuisine_id": 0,
+            "cuisine_name": "All"
+          }
+        
+      },
+      {
         "cuisine": {
           "cuisine_id": 1035,
           "cuisine_name": "Afghan"

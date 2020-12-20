@@ -38,8 +38,6 @@ app.use("/login", require("./routes//login"))
 app.use("/profile", require("./routes/profile"))
 app.use("/getRestaurant", require("./routes/getRestaurants"))
 
-// console.log((process.env.NODE_ENV = "production"))
-
 app.use(express.static(path.join(__dirname, "client/build")))
 
 if (process.env.NODE_ENV === "production") {

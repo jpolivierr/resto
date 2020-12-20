@@ -11,13 +11,13 @@
 }
 
 .Navigation .logo{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
 }
 
 .Navigation .logo span {
-  font-size: 40px;
+  font-size: 25px !important;
   color: var(--main-color);
   font-weight: bolder;
 

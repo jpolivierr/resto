@@ -87,7 +87,7 @@ function Result() {
 
   const selectedRes = (e) => {
     // display full result mobile version
-    if(window.innerWidth < 1037)
+    if(window.innerWidth < 1037 && e.target.id !== 'like')
     setResultModal( {...resultModal, modal: 'result-modal', result_mobile: 'full-result-mobile'})
     //show full result on click
     if (e.target.id !== "like" && e.target.className !== "like") {
@@ -109,9 +109,9 @@ function Result() {
         const newResult = reduxResult.find((res) => {
           return res.id === e.target.dataset.resid
         })
-        console.log((newResult.liked = " "))
+        newResult.liked = " "
       } else if (
-        //---------------------------------------------------------- add restaurant to favRes Array
+        // add restaurant to favRes Array
         !e.target.className.includes("clicked") &&
         e.target.id === "like"
       ) {
@@ -127,7 +127,7 @@ function Result() {
         })
       }
     } else if (e.target.id === "like" && !log) {
-      //----------------------------------------------------- set Error Message if user is not logged In
+      // set Error Message if user is not logged In
       dispatch({
         type: actions.MODALON,
         payload: { modaltype: "signup", OUT_WITH_ANIMATION: false },
@@ -158,7 +158,7 @@ function Result() {
   
   
 
-  // --------------------------------------------------displayes all the info for the selected restaurant
+  // displayes all the info for the selected restaurant
   const resultToDisplay = selected.newresult
   switch (restaurants) {
     case undefined:

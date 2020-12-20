@@ -129,7 +129,7 @@ function Forms(props) {
     const body = JSON.stringify(update)
     try {
       const res = await axios.post("/profile/update/", body, config)
-      // console.log(res)
+      console.log(res)
       closeForm()
     } catch (error) {
       console.log(error.response.data)

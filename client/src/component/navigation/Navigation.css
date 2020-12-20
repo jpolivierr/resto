@@ -55,7 +55,7 @@
   transition: all .3s ease-in-out;
 }
 
-.Navigation .sign-up:hover, .Navigation .log-in:hover{
+.Navigation .log-in:hover{
   background-color: var(--main-color);
   color: white;
 }
@@ -80,9 +80,9 @@
   overflow: hidden;
   background-color: white;
   top: 100%;
+  left: 0;
   display: flex;
   flex-flow: column;
-
   align-items: center;
   font-weight: normal;
   transition: all 0.3s ease-in;
@@ -91,6 +91,7 @@
 .account-options {
   color: black;
   z-index: 1;
+  background-color: white;
   border-bottom: 1px solid silver;
   width: 100%;
   text-align: center;
@@ -108,5 +109,9 @@
 
 .delete-option {
   color: red;
+  background-color: white;
+}
+
+.edit-info{
   background-color: white;
 }

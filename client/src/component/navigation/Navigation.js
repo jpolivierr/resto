@@ -25,6 +25,7 @@ function Navigation() {
 
   // Delete Account
   const deleteAcount = async () => {
+window.location.reload()
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -34,9 +35,12 @@ function Navigation() {
     try {
       const res = await axios.post("/profile/delete/", null, config)
       console.log(res.data)
+      
     } catch (error) {
       console.log(error.response.data)
     }
+    
+
   }
 
   switch (loggedIn) {
@@ -57,7 +61,7 @@ function Navigation() {
           </div>
           <div className="registration">
             <div
-              className="sign-up user"
+              className="sign-up user logedIn"
               onClick={() =>
                 dispatch({
                   type: actions.MODALON,
@@ -65,7 +69,7 @@ function Navigation() {
                 })
               }
             >
-              Sign Up
+             <i className="far fa-user"></i> Sign Up
             </div>
             <div
               className="log-in user"

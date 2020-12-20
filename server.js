@@ -25,10 +25,10 @@ const path = require("path")
 //   },
 // }
 
-app.use(cors())
+// app.use(cors())
 
 Database()
-// app.use(cors())
+app.use(cors())
 //Init Middleware
 app.use(express.json({ extended: false }))
 

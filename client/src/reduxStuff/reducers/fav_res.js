@@ -13,8 +13,7 @@ const setFavResToDataBase = async (data, token) => {
   }
   const body = JSON.stringify(data)
   try {
-    const res = await axios.post("/profile/favorite/", body, config)
-    console.log(res)
+    await axios.post("/profile/favorite/", body, config)
   } catch (error) {
     console.log(error)
   }
@@ -37,11 +36,9 @@ const Fav_res = (state = initialState, action) => {
       const updateFavRes = state.fav_res.filter((res) => {
         return res.id !== action.payload
       })
-      console.log(updateFavRes)
       setFavResToDataBase(updateFavRes, action.token)
       return { ...state, fav_res: updateFavRes }
     case actions.RESET_FAV_RES:
-      console.log('default fired....')
       return { ...state, fav_res: [] }
     default:
       return state

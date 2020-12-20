@@ -1,4 +1,5 @@
 .advance-search{
+    position: relative;
     align-items: center;
     display: grid;
     grid-template-columns: 5fr 5fr 1fr 1fr ;
@@ -154,4 +155,27 @@
     color: red;
     top: -50%;
     font-size: .8rem;
+  }
+
+  .error-msg{
+    position: absolute;
+    top: -30%;
+    color: var(--main-color);
+    color: red;
+    font-weight: normal;
+    background-color: white;
+    padding: 0rem .5rem;
+    border-radius: var(--radius);
+    animation: showerror .3s ease-in-out;
+  }
+
+  @keyframes showerror {
+    from{
+      opacity: 0;
+      top: 0;
+    }
+    to{
+      opacity: 1;
+      top: -30%;
+    }
   }

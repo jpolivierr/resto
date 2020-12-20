@@ -9,7 +9,7 @@ function AdvanceSearch(props) {
   // --------------------------------------------------sTATES
   const [filter, setFilter] = useState({
     city: "",
-    cuisine: { name: "Cuisine", id: null },
+    cuisine: { name: "CUISINE: select a cuisine for better result", id: null },
     rating: "Rating",
     sort: "Sort-by",
   })
@@ -22,8 +22,10 @@ function AdvanceSearch(props) {
   const [errMsg, setErrMsg] = useState({
     errmsg: "",
     cityerror: "",
+    resultErrorStyle: '',
+    resultErrorMsg: ''
   })
-  //-----------------------------------------------get state value from store
+  //get state value from store
   // const storage = JSON.parse(localStorage.getItem("restaurant"))
   const showcase = useSelector((state) => state.showcase)
   const loading = useSelector((state) => state.loading.loading)
@@ -32,9 +34,9 @@ function AdvanceSearch(props) {
   const log = useSelector((state) => state.log.loggedIn)
   // const resResult = useSelector((state)=> state.result.Results.restaurants)
   // console.log(result)
-  //---------------------------------------------------assign Dispatch
+  //assign Dispatch
   const dispatch = useDispatch()
-  //---------------------------------------------------update Filter
+  //update Filter
   function updateFilter(Parent, value, cuisineId) {
     switch (Parent) {
       case "cuisine":
@@ -50,7 +52,7 @@ function AdvanceSearch(props) {
         return null
     }
   }
-  //-------------------------------------------------------- changes the showcase with animation
+  // changes the showcase with animation
   const setAnimation = () => {
     dispatch({
       type: actions.SHOWCASE_OPTION,
@@ -63,11 +65,11 @@ function AdvanceSearch(props) {
       })
     }, 230)
   }
-  //-------------------------------------------------------------update City
+  //update City
   const updateCity = (e) => {
     setFilter({ ...filter, city: e.target.value })
   }
-  //-------------------------------------------------------------Favorites Button
+  //Favorites Button
   const favButton = () => {
     if (log === false) {
       dispatch({
@@ -83,9 +85,19 @@ function AdvanceSearch(props) {
       })
     }
   }
-  //----------------------------------------------------------Fetches all restaurants
+  const setResultErrorMsg = () =>{
+    setErrMsg({...errMsg, resultErrorStyle: 'error-msg',
+    resultErrorMsg: 'No result found for this search criteria. Please try a different search.'
+  })
+  }
+  const clearResultErrorMsg = () =>{
+    setErrMsg({...errMsg, resultErrorStyle: '',
+    resultErrorMsg: ''
+  })}
+  //Fetches all restaurants
   const getRestaurants = async () => {
     setErrMsg({ ...errMsg, cityerror: "" })
+    clearResultErrorMsg()
     if (filter.city === "") {
       return setErrMsg({ ...errMsg, cityerror: "city-error" })
     }
@@ -97,7 +109,7 @@ function AdvanceSearch(props) {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        "user-key": '2ee72a448846f7fcc7d50a9a84cd7535',
+        "user-key": "2ee72a448846f7fcc7d50a9a84cd7535",
       },
     }
     const body = {
@@ -115,7 +127,15 @@ function AdvanceSearch(props) {
       globalResults.restaurants.forEach((res) => {
         res.address = res.location.address
       })
-
+      if(globalResults.resultsShown === 0){
+        setResultErrorMsg()
+        setTimeout(()=>{clearResultErrorMsg()},5000)
+        dispatch({
+          type: actions.LOADING,
+          payload: false,
+        })
+        return null
+      }
       localStorage.setItem("restaurant", JSON.stringify(globalResults))
       dispatch({
         type: actions.PUSH_RESULT,
@@ -135,6 +155,7 @@ function AdvanceSearch(props) {
   // let r = result === undefined ? "" : result
   return (
     <div className={`advance-search ${props.homeSearch}`}>
+      <div style={{position: 'absolute'}} className={errMsg.resultErrorStyle}> {errMsg.resultErrorMsg}.</div>
       {/* <h2>Result : {r}</h2> */}
       <div //--------------------------------------------------CITY
         id="city"

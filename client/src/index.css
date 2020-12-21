@@ -194,13 +194,12 @@ a {
     height: 100px !important;
   }
   .resultLayout{
-    max-height: 600px !important;
+    max-height: 500px !important;
     margin: 0 !important;
     margin-top: 16% !important;
-    border: 1px solid red !important;
   }
   .snip-result{
-    max-height: 600px;
+    max-height: 550px;
   } 
   .App{
     max-height: 100vh !important;

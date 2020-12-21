@@ -2,7 +2,7 @@
   position: absolute ;
   top: 0;
   width: var(--container-size);
-  height: 10vh;
+  height: 13vh;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -22,8 +22,8 @@ function AdvanceSearch(props) {
   const [errMsg, setErrMsg] = useState({
     errmsg: "",
     cityerror: "",
-    resultErrorStyle: '',
-    resultErrorMsg: ''
+    resultErrorStyle: "",
+    resultErrorMsg: "",
   })
   //get state value from store
   // const storage = JSON.parse(localStorage.getItem("restaurant"))
@@ -85,15 +85,17 @@ function AdvanceSearch(props) {
       })
     }
   }
-  const setResultErrorMsg = () =>{
-    setErrMsg({...errMsg, resultErrorStyle: 'error-msg',
-    resultErrorMsg: 'No result found for this search criteria. Please try a different search.'
-  })
+  const setResultErrorMsg = () => {
+    setErrMsg({
+      ...errMsg,
+      resultErrorStyle: "error-msg",
+      resultErrorMsg:
+        "No result found for this search criteria. Please try a different search.",
+    })
   }
-  const clearResultErrorMsg = () =>{
-    setErrMsg({...errMsg, resultErrorStyle: '',
-    resultErrorMsg: ''
-  })}
+  const clearResultErrorMsg = () => {
+    setErrMsg({ ...errMsg, resultErrorStyle: "", resultErrorMsg: "" })
+  }
   //Fetches all restaurants
   const getRestaurants = async () => {
     setErrMsg({ ...errMsg, cityerror: "" })
@@ -128,9 +130,11 @@ function AdvanceSearch(props) {
       globalResults.restaurants.forEach((res) => {
         res.address = res.location.address
       })
-      if(globalResults.resultsShown === 0){
+      if (globalResults.resultsShown === 0) {
         setResultErrorMsg()
-        setTimeout(()=>{clearResultErrorMsg()},5000)
+        setTimeout(() => {
+          clearResultErrorMsg()
+        }, 5000)
         dispatch({
           type: actions.LOADING,
           payload: false,
@@ -156,7 +160,10 @@ function AdvanceSearch(props) {
   // let r = result === undefined ? "" : result
   return (
     <div className={`advance-search ${props.homeSearch}`}>
-      <div style={{position: 'absolute'}} className={errMsg.resultErrorStyle}> {errMsg.resultErrorMsg}</div>
+      <div style={{ position: "absolute" }} className={errMsg.resultErrorStyle}>
+        {" "}
+        {errMsg.resultErrorMsg}
+      </div>
       {/* <h2>Result : {r}</h2> */}
       <div //--------------------------------------------------CITY
         id="city"

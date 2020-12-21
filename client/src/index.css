@@ -193,6 +193,14 @@ a {
     width: 100px !important;
     height: 100px !important;
   }
+
+  .resultLayout{
+    max-height: 400px !important;
+    margin-top: 13% !important;
+  }
+  .snip-result{
+    max-height: 400px;
+  } 
 }
 
 @media (max-width: 380px) {

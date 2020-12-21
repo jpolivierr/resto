@@ -11,6 +11,10 @@ function Select(props) {
     sort: "Sort-by",
   })
 
+  const [hover, sethover] = useState({
+    hoverStyle: 'disabled'
+  })
+
   const cuisine = useSelector((state) => state.result.cuisine)
 
   const clicked = (e) => {
@@ -58,7 +62,7 @@ function Select(props) {
         <div
           id="cuisine"
           onClick={(e) => clicked(e)}
-          className={`select active ${props.type} ${props.homeStyle}  `}
+          className={`select active ${hover.hoverStyle} ${props.type} ${props.homeStyle}  `}
         >
           <div className="selected">{props.cuisineValue}</div>
           <i className="fas fa-caret-down"></i>

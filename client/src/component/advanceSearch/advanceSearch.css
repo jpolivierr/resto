@@ -9,6 +9,7 @@
     background-color: white;
     height: min-content;
     margin-bottom: 1rem;
+    max-height: 85px !important;
 }
 
 .advance-search  h2{

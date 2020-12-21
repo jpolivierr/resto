@@ -112,6 +112,7 @@ function AdvanceSearch(props) {
         "user-key": "2ee72a448846f7fcc7d50a9a84cd7535",
       },
     }
+
     const body = {
       city: filter.city,
       cuisine: filter.cuisine.id,
@@ -155,7 +156,7 @@ function AdvanceSearch(props) {
   // let r = result === undefined ? "" : result
   return (
     <div className={`advance-search ${props.homeSearch}`}>
-      <div style={{position: 'absolute'}} className={errMsg.resultErrorStyle}> {errMsg.resultErrorMsg}.</div>
+      <div style={{position: 'absolute'}} className={errMsg.resultErrorStyle}> {errMsg.resultErrorMsg}</div>
       {/* <h2>Result : {r}</h2> */}
       <div //--------------------------------------------------CITY
         id="city"

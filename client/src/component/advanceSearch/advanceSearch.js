@@ -97,12 +97,15 @@ function AdvanceSearch(props) {
     setErrMsg({ ...errMsg, resultErrorStyle: "", resultErrorMsg: "" })
   }
   //Fetches all restaurants
-  const getRestaurants = async () => {
-    setErrMsg({ ...errMsg, cityerror: "" })
+  const getRestaurants = async (e) => {
+    e.preventDefault()
+    
     clearResultErrorMsg()
     if (filter.city === "") {
       return setErrMsg({ ...errMsg, cityerror: "city-error" })
-    }
+    }setErrMsg({ ...errMsg, cityerror: "" })
+
+
     // const globalResults = {}
     dispatch({
       type: actions.LOADING,
@@ -159,7 +162,9 @@ function AdvanceSearch(props) {
   }
   // let r = result === undefined ? "" : result
   return (
-    <div className={`advance-search ${props.homeSearch}`}>
+    <form onSubmit={(e) => {
+      getRestaurants(e)
+    }} className={`advance-search ${props.homeSearch}`}>
       <div style={{ position: "absolute" }} className={errMsg.resultErrorStyle}>
         {" "}
         {errMsg.resultErrorMsg}
@@ -188,9 +193,6 @@ function AdvanceSearch(props) {
 
       {/*---------------------------------------------------- Search button */}
       <button
-        onClick={() => {
-          getRestaurants()
-        }}
         className={
           showcase.showcase === 1
             ? `button-home-style ${loading === true ? "button-loading" : ""} `
@@ -222,7 +224,7 @@ function AdvanceSearch(props) {
           create an account
         </div>
       </div>
-    </div>
+    </form>
   )
 }
 export default AdvanceSearch

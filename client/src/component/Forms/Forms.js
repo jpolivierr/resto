@@ -233,6 +233,7 @@ function Forms(props) {
               <p className="orloggin">
                 Already have an account? Please{" "}
                 <span
+                style={{cursor: 'pointer'}}
                   onClick={() => {
                     dispatch({
                       type: actions.MODALON,

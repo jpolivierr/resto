@@ -99,13 +99,10 @@ function AdvanceSearch(props) {
   //Fetches all restaurants
   const getRestaurants = async (e) => {
     e.preventDefault()
-    
     clearResultErrorMsg()
     if (filter.city === "") {
       return setErrMsg({ ...errMsg, cityerror: "city-error" })
     }setErrMsg({ ...errMsg, cityerror: "" })
-
-
     // const globalResults = {}
     dispatch({
       type: actions.LOADING,
@@ -114,15 +111,14 @@ function AdvanceSearch(props) {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        "user-key": "2ee72a448846f7fcc7d50a9a84cd7535",
       },
     }
-
     const body = {
       city: filter.city,
       cuisine: filter.cuisine.id,
     }
     try {
+      console.log('fired..')
       const res = await axios.post("/getRestaurant", body, config)
       const globalResults = {}
       globalResults.resultsShown = res.data.results_shown

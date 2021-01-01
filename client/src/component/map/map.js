@@ -27,7 +27,7 @@ function Map(props) {
       }}
     >
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyDXo77iJpiyrlgG1jB-R_QEFFEXaxs2-Qc' }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
         defaultCenter={{
           lat: result[0].lat,
           lng: result[0].lng,

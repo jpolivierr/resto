@@ -1,7 +1,6 @@
 const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 5000
-const { parse } = require("node-html-parser")
 const cors = require("cors")
 const Database = require("./Database/database")
 const path = require("path")

@@ -1,5 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://dbUser:carnaval2@cluster0.3trh9.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    "googleKey": "AIzaSyDXo77iJpiyrlgG1jB-R_QEFFEXaxs2-Qc",
-    "zomatoKey": "2ee72a448846f7fcc7d50a9a84cd7535"
-}
